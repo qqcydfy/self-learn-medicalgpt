@@ -29,38 +29,10 @@ Supervised Finetuning, RLHF(Reward Modeling and Reinforcement Learning) and DPO(
 - RLHF training pipeline来自Andrej Karpathy的演讲PDF [State of GPT](https://karpathy.ai/stateofgpt.pdf)，视频 [Video](https://build.microsoft.com/en-US/sessions/db3f4859-cd30-4445-a0cd-553c3304f8e2)
 - DPO方法来自论文[Direct Preference Optimization:Your Language Model is Secretly a Reward Model](https://arxiv.org/pdf/2305.18290.pdf)
 - ORPO方法来自论文[ORPO: Monolithic Preference Optimization without Reference Model](https://arxiv.org/abs/2403.07691)
-## 🔥 News
-[2025/04/18] v2.4版本：支持了LoRA和全参的 **[GRPO](https://arxiv.org/pdf/2402.03300)** 训练方法，GRPO通过纯RL方法可以体验`aha moment`，详见[Release-v2.4](https://github.com/shibing624/MedicalGPT/releases/tag/2.4.0)
 
-[2024/09/21] v2.3版本：支持了 **[Qwen-2.5](https://qwenlm.github.io/zh/blog/qwen2.5/)** 系列模型，详见[Release-v2.3](https://github.com/shibing624/MedicalGPT/releases/tag/2.3.0)
-
-[2024/08/02] v2.2版本：支持了角色扮演模型训练，新增了医患对话SFT数据生成脚本[role_play_data](https://github.com/shibing624/MedicalGPT/blob/main/role_play_data/README.md)，详见[Release-v2.2](https://github.com/shibing624/MedicalGPT/releases/tag/2.2.0)
 
 <details><summary>展开日志</summary>
 
-[2024/06/11] v2.1版本：支持了 **[Qwen-2](https://qwenlm.github.io/blog/qwen2/)** 系列模型，详见[Release-v2.1](https://github.com/shibing624/MedicalGPT/releases/tag/2.1.0)
-
-[2024/04/24] v2.0版本：支持了 **[Llama-3](https://huggingface.co/meta-llama)** 系列模型，详见[Release-v2.0](https://github.com/shibing624/MedicalGPT/releases/tag/2.0.0)
-
-[2024/04/17] v1.9版本：支持了 **[ORPO](https://arxiv.org/abs/2403.07691)**，详细用法请参照 `run_orpo.sh`。详见[Release-v1.9](https://github.com/shibing624/MedicalGPT/releases/tag/1.9.0)
-
-[2024/01/26] v1.8版本：支持微调Mixtral混合专家MoE模型 **[Mixtral 8x7B](https://huggingface.co/mistralai/Mixtral-8x7B-v0.1)**。详见[Release-v1.8](https://github.com/shibing624/MedicalGPT/releases/tag/1.8.0)
-
-[2024/01/14] v1.7版本：新增检索增强生成(RAG)的基于文件问答[ChatPDF](https://github.com/shibing624/ChatPDF)功能，代码`chatpdf.py`，可以基于微调后的LLM结合知识库文件问答提升行业问答准确率。详见[Release-v1.7](https://github.com/shibing624/MedicalGPT/releases/tag/1.7.0)
-
-[2023/10/23] v1.6版本：新增RoPE插值来扩展GPT模型的上下文长度；针对LLaMA模型支持了[FlashAttention-2](https://github.com/Dao-AILab/flash-attention)和[LongLoRA](https://github.com/dvlab-research/LongLoRA) 提出的 **$S^2$-Attn**；支持了[NEFTune](https://github.com/neelsjain/NEFTune)给embedding加噪训练方法。详见[Release-v1.6](https://github.com/shibing624/MedicalGPT/releases/tag/1.6.0)
-
-[2023/08/28] v1.5版本: 新增[DPO(直接偏好优化)](https://arxiv.org/pdf/2305.18290.pdf)方法，DPO通过直接优化语言模型来实现对其行为的精确控制，可以有效学习到人类偏好。详见[Release-v1.5](https://github.com/shibing624/MedicalGPT/releases/tag/1.5.0)
-
-[2023/08/08] v1.4版本: 发布基于ShareGPT4数据集微调的中英文Vicuna-13B模型[shibing624/vicuna-baichuan-13b-chat](https://huggingface.co/shibing624/vicuna-baichuan-13b-chat)，和对应的LoRA模型[shibing624/vicuna-baichuan-13b-chat-lora](https://huggingface.co/shibing624/vicuna-baichuan-13b-chat-lora)，详见[Release-v1.4](https://github.com/shibing624/MedicalGPT/releases/tag/1.4.0)
-
-[2023/08/02] v1.3版本: 新增LLaMA, LLaMA2, Bloom, ChatGLM, ChatGLM2, Baichuan模型的多轮对话微调训练；新增领域词表扩充功能；新增中文预训练数据集和中文ShareGPT微调训练集，详见[Release-v1.3](https://github.com/shibing624/MedicalGPT/releases/tag/1.3.0)
-
-[2023/07/13] v1.1版本: 发布中文医疗LLaMA-13B模型[shibing624/ziya-llama-13b-medical-merged](https://huggingface.co/shibing624/ziya-llama-13b-medical-merged)，基于Ziya-LLaMA-13B-v1模型，SFT微调了一版医疗模型，医疗问答效果有提升，发布微调后的完整模型权重，详见[Release-v1.1](https://github.com/shibing624/MedicalGPT/releases/tag/1.1)
-
-[2023/06/15] v1.0版本: 发布中文医疗LoRA模型[shibing624/ziya-llama-13b-medical-lora](https://huggingface.co/shibing624/ziya-llama-13b-medical-lora)，基于Ziya-LLaMA-13B-v1模型，SFT微调了一版医疗模型，医疗问答效果有提升，发布微调后的LoRA权重，详见[Release-v1.0](https://github.com/shibing624/MedicalGPT/releases/tag/1.0.0)
-
-[2023/06/05] v0.2版本: 以医疗为例，训练领域大模型，实现了四阶段训练：包括二次预训练、有监督微调、奖励建模、强化学习训练。详见[Release-v0.2](https://github.com/shibing624/MedicalGPT/releases/tag/0.2.0)
 
 </details>
 
@@ -80,6 +52,28 @@ Supervised Finetuning, RLHF(Reward Modeling and Reinforcement Learning) and DPO(
   - [DPO(Direct Preference Optimization)](https://arxiv.org/pdf/2305.18290.pdf)直接偏好优化方法，DPO通过直接优化语言模型来实现对其行为的精确控制，而无需使用复杂的强化学习，也可以有效学习到人类偏好，DPO相较于RLHF更容易实现且易于训练，效果更好
   - [ORPO](https://arxiv.org/abs/2403.07691)比值比偏好优化，不需要参考模型（ref_model）的优化方法，通过ORPO，LLM可以同时学习SFT和对齐，将两个过程整合为单一步骤，缓解模型灾难性遗忘问题
 
+## 📊 实验结果
+
+基于Qwen2.5-7B模型的医疗领域大模型训练实验，使用evalscope在ceval的basic_medicine子集上评测：
+
+| 训练阶段 | 分数 | 提升说明 |
+|:---------|:-----|:---------|
+| 基础模型 | 0.1053 | - |
+| 增量预训练(PT) | 0.4737 | +350% 领域适应 |
+| 原始SFT | 0.3684 | 过拟合导致下降 |
+| 优化SFT | 0.5789 | 通过数据筛选提升 |
+| DPO偏好对齐 | 0.6316 | +9% 对齐效果 |
+
+![基础模型baseline](image-1.png)
+![增量预训练](image-2.png)
+![原始SFT](image-3.png)
+![优化SFT](image-4.png)
+![DPO训练](image-5.png)
+
+**实验关键发现：**
+- **增量预训练效果显著**：在医学预训练数据上继续训练，使模型从0.1053提升到0.4737
+- **SFT数据选择至关重要**：原始194万数据直接SFT导致过拟合，通过向量相似度筛选出2万条高相关数据，效果反而更好
+- **DPO混合偏好训练**：纯医学偏好数据导致领域过拟合，混合通用对话数据后模型回答的准确性、逻辑性与专家偏好一致性均得到明显改善
 
 ### Release Models
 
@@ -286,23 +280,6 @@ sh vllm_deployment.sh
 - 7万条英文Reward数据集：[yitingxie/rlhf-reward-datasets](https://huggingface.co/datasets/yitingxie/rlhf-reward-datasets)
 - 3千条中文知乎问答偏好数据集：[liyucheng/zhihu_rlhf_3k](https://huggingface.co/datasets/liyucheng/zhihu_rlhf_3k)
 
-
-## ☎️ Contact
-
-- Issue(建议)
-  ：[![GitHub issues](https://img.shields.io/github/issues/shibing624/MedicalGPT.svg)](https://github.com/shibing624/MedicalGPT/issues)
-- 邮件我：xuming: xuming624@qq.com
-- 微信我： 加我*微信号：xuming624, 备注：姓名-公司名-NLP* 进NLP交流群（加我拉你进群）。
-
-<img src="https://github.com/shibing624/MedicalGPT/blob/main/docs/wechat.jpeg" width="200" />
-
-<img src="https://github.com/shibing624/MedicalGPT/blob/main/docs/wechat_group.jpg" width="200" />
-
-## ⚠️ LICENSE
-
-本项目仅可应用于研究目的，项目开发者不承担任何因使用本项目（包含但不限于数据、模型、代码等）导致的危害或损失。详细请参考[免责声明](https://github.com/shibing624/MedicalGPT/blob/main/DISCLAIMER)。
-
-MedicalGPT项目代码的授权协议为 [The Apache License 2.0](/LICENSE)，代码可免费用做商业用途，模型权重和数据只能用于研究目的。请在产品说明中附加MedicalGPT的链接和授权协议。
 
 
 ## 😇 Citation
