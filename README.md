@@ -30,6 +30,7 @@ Supervised Finetuning, RLHF(Reward Modeling and Reinforcement Learning) and DPO(
 - DPO方法来自论文[Direct Preference Optimization:Your Language Model is Secretly a Reward Model](https://arxiv.org/pdf/2305.18290.pdf)
 - ORPO方法来自论文[ORPO: Monolithic Preference Optimization without Reference Model](https://arxiv.org/abs/2403.07691)
 
+个人自主学习medicalgpt，原仓库参考：https://github.com/shibing624/MedicalGPT
 
 <details><summary>展开日志</summary>
 
@@ -85,26 +86,6 @@ DPO：
 - **SFT数据选择至关重要**：原始194万数据直接SFT导致过拟合，通过向量相似度筛选出2万条高相关数据，效果反而更好
 - **DPO混合偏好训练**：纯医学偏好数据导致领域过拟合，混合通用对话数据后模型回答的准确性、逻辑性与专家偏好一致性均得到明显改善
 
-
-
-## ▶️ Demo
-
-
-我们提供了一个简洁的基于gradio的交互式web界面，启动服务后，可通过浏览器访问，输入问题，模型会返回答案。
-
-启动服务，命令如下：
-```shell
-CUDA_VISIBLE_DEVICES=0 python gradio_demo.py --base_model path_to_llama_hf_dir --lora_model path_to_lora_dir
-```
-
-参数说明：
-
-- `--base_model {base_model}`：存放HF格式的LLaMA模型权重和配置文件的目录，也可使用HF Model Hub模型调用名称
-- `--lora_model {lora_model}`：LoRA文件所在目录，也可使用HF Model Hub模型调用名称。若lora权重已经合并到预训练模型，则删除--lora_model参数
-- `--tokenizer_path {tokenizer_path}`：存放对应tokenizer的目录。若不提供此参数，则其默认值与--base_model相同
-- `--template_name`：模板名称，如`vicuna`、`alpaca`等。若不提供此参数，则其默认值是vicuna
-- `--only_cpu`: 仅使用CPU进行推理
-- `--resize_emb`：是否调整embedding大小，若不调整，则使用预训练模型的embedding大小，默认不调整
 
 
 ## 💾 Install
