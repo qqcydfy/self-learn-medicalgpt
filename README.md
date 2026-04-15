@@ -64,10 +64,20 @@ Supervised Finetuning, RLHF(Reward Modeling and Reinforcement Learning) and DPO(
 | 优化SFT | 0.5789 | 通过数据筛选提升 |
 | DPO偏好对齐 | 0.6316 | +9% 对齐效果 |
 
+评测数据：
+基础模型baseline:
 ![基础模型baseline](image-1.png)
+
+增量预训练：
 ![增量预训练](image-2.png)
+
+原始SFT：
 ![原始SFT](image-3.png)
+
+优化SFT：
 ![优化SFT](image-4.png)
+
+DPO：
 ![DPO训练](image-5.png)
 
 **实验关键发现：**
