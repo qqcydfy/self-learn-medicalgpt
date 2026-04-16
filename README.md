@@ -55,7 +55,12 @@ Supervised Finetuning, RLHF(Reward Modeling and Reinforcement Learning) and DPO(
 
 ## 📊 实验结果
 
-基于Qwen2.5-7B模型的医疗领域大模型训练实验，使用evalscope在ceval的basic_medicine子集上评测：
+基于Qwen2.5-7B模型的医疗领域大模型训练实验，主要工作：
+主要工作：1.PT增量预训练：在shibing624/medical的领域预训练数据上二次预训练模型，以适应领域数据分布。在evalscope评测框架中ceval的basic_medicine子集评测，由基础模型的0.1053得分上升到0.4737
+2.SFT有监督微调：在预训练基础上使用medical里的194w中文数据集做微调，SFT之后在ceval的相关领域子集上面测试，发现模型的得分并没有提升，反而出现下降，从0.4737下降到0.3684。针对微调模型后在ceval医疗指标上成绩会下降的问题。先把原始语料（194w数据）和目标数据ceval医疗子集题目向量化，每条语料找top-50个相关题目，计算平均向量相似度，选出相似度最高的2w条语料作为新的微调数据集。ceval的basic_medicine子集评测分数和最初的SFT和PT相比均有所提升，提升到0.5789
+3.RL:采用DPO算法训练，基于PT与SFT后模型进行DPO 偏好对齐与训练：
+初步使用medical/reward 3800条纯医学偏好数据训练，发现模型存在领域过拟合、偏好信号单一问题。于是引入通用对话偏好数据与医学数据混合训练，构建领域 + 通用混合偏好数据集进行DPO训练，实验证明混合偏好训练可有效提升模型对齐效果，对比SFT后模型，经过DPO后的模型在ceval的basic_medicine子集评测分数上从0.5789提升到0.6316。回答的准确性、逻辑性与专家偏好一致性均得到明显改善。
+使用evalscope在ceval的basic_medicine子集上评测：
 
 | 训练阶段 | 分数 | 提升说明 |
 |:---------|:-----|:---------|
